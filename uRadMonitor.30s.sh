@@ -2,7 +2,7 @@
 # This script is used with BitBar for uRad Monitor
 
 # <bitbar.title>uRadMonitor view</bitbar.title>
-# <bitbar.version>v1.0</bitbar.version>
+# <bitbar.version>v1.1</bitbar.version>
 # <bitbar.author>Martin LBB</bitbar.author>
 # <bitbar.author.github>martinlbb</bitbar.author.github>
 # <bitbar.desc>Extract radiation value from uRadMonitor and show it.</bitbar.desc>
