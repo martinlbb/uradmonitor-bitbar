@@ -68,23 +68,23 @@ usv=$(echo "$ratio*$cpm" | bc | sed 's/^\./0./')
 
 #Determine color based on actual radiation
 #Color taken form uRad Website
-if [ $(echo $usv'<'0.03 | bc -l) ]; then
+if (( $(echo "$usv < 0.03" |bc -l) )); then
    color="#00ff00"
-elif [ $(echo $usv'<'0.06 | bc -l) ]; then
+elif (( $(echo "$usv < 0.06" |bc -l) )); then
    color="#33ff00"
-elif [ $(echo $usv'<'0.09 | bc -l) ]; then
+elif (( $(echo "$usv < 0.09" |bc -l) )); then
    color="#66ff00"
-elif [ $(echo $usv'<'0.12 | bc -l) ]; then
+elif (( $(echo "$usv < 0.12" |bc -l) )); then
    color="#99ff00"
-elif [ $(echo $usv'<'0.15 | bc -l) ]; then
+elif (( $(echo "$usv < 0.15" |bc -l) )); then
    color="#ccff00"
-elif [ $(echo $usv'<'0.18 | bc -l) ]; then
+elif (( $(echo "$usv < 0.18" |bc -l) )); then
    color="#ffff00"
-elif [ $(echo $usv'<'0.21 | bc -l) ]; then
+elif (( $(echo "$usv < 0.21" |bc -l) )); then
    color="#ffcc00"
-elif [ $(echo $usv'<'0.24 | bc -l) ]; then
+elif (( $(echo "$usv < 0.24" |bc -l) )); then
    color="#ff9900"
-elif [ $(echo $usv'<'0.27 | bc -l) ]; then
+elif (( $(echo "$usv < 0.27" |bc -l) )); then
    color="#ff6600"
 else
    color="#ff3300"
@@ -95,10 +95,10 @@ fi
 printf '%3.2f µSv/h | color=%s\n' $usv $color
 
 #If you enable following values, BitBar will show several values
-#printf '%s CPM\n' $cpm
-#printf '%s CPM (avg)\n' $avgcpm
-#printf '%s °C\n' $temp
-#echo "---"
-#printf 'Unit %s\n' $unit
-#printf '%s (%s V)\n' $detector $volt
-
+echo "---"
+printf '%s CPM\n' $cpm
+printf '%s CPM (avg)\n' $avgcpm
+printf '%s °C\n' $temp
+echo "---"
+printf 'Unit %s | bash='/usr/bin/open' param1="https://www.uradmonitor.com/?open=%s" terminal=false\n' $unit $unit
+printf '%s (%s V)\n' $detector $volt
